@@ -22,7 +22,7 @@ export const HomePage: React.FC<HomePageType> = ({ }) => {
     
     return (
         <Stack alignItems={'center'} justifyContent={'center'} sx={styles.stack}>
-            <Typography variant="h1" color={'inherit'}>Hello world!</Typography>
+            <Typography variant="h1" color={'inherit'}>Home</Typography>
             <Button variant="text" color="primary" onClick={toggleThee}>
                 {translation('hello_world')}
             </Button>

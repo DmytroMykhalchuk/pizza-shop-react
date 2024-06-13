@@ -21,6 +21,12 @@ export const globalTheme = {
          background: {
             // default: "#F1F1F1",
          },
+         primary: {
+            main: '#000',
+         },
+         secondary: {
+            main: '#FCDCAB',
+         },
          fpage: {
             dark: '#000',
             main: '#000',
