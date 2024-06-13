@@ -2,8 +2,8 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import { bottomBar } from '../../constants/layoutConstants';
 import { Paper } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { useNavigate, useNavigation } from 'react-router-dom';
 
 type AppFooterType = {
 };
