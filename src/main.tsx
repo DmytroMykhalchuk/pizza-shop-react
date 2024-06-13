@@ -10,7 +10,7 @@ import './index.css';
 if (import.meta.env.VITE_REACT_APP_STRICT_MODE === '1') {
   ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-      <BrowserRouter basename={import.meta.env.VITE_PUBLIC_URL}>
+      <BrowserRouter>
         <Provider store={store}>
           <App />
         </Provider>
@@ -20,7 +20,7 @@ if (import.meta.env.VITE_REACT_APP_STRICT_MODE === '1') {
 } else {
   ReactDOM.createRoot(document.getElementById('root')!).render(
     <Provider store={store}>
-      <BrowserRouter basename={import.meta.env.VITE_PUBLIC_URL}>
+      <BrowserRouter>
         <App />
       </BrowserRouter>
     </Provider>

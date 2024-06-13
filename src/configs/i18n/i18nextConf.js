@@ -8,7 +8,7 @@ export const availableLanguages = ['uk'];
 
 i18n
   // .use(initReactI18next)
-  .use(Backend) // load translations using http (default                                               public/assets/locals/en/translations)
+  .use(Backend) // load translations using http (default public/assets/locals/en/translations)
   .use(LanguageDetector) // detect user language
   .use(initReactI18next) // pass the i18n instance to react-i18next.
   .init({

@@ -31,7 +31,6 @@ export const App = () => {
       <Stack sx={{ bgcolor: 'background.default' }}>
         {isFetching && (<FullScreenLoader />)}
         <Routes>
-
           <Route path='/*' element={
             <Suspense fallback={<FullScreenLoader />}>
               <AppLayout />
