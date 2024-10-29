@@ -9,6 +9,8 @@ import { ThemeWrapper } from '../src/modules/ui/ThemeWrapper';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 
+let tg = window.Telegram.WebApp as any;
+
 export const App = () => {
   const navigate = useNavigate();
   const dispatch: any = useDispatch();
@@ -25,10 +27,21 @@ export const App = () => {
     // eslint-disable-next-line
   }, [redirectPath]);
 
+  useEffect(() => {
+    tg.ready();
+    tg.expand();
+  }, []);
+
 
   return (
     <ThemeWrapper>
-      <Stack sx={{ bgcolor: 'background.default' }}>
+      <Stack sx={{
+        bgcolor: 'background.default',
+        maxWidth: 600,
+        margin: '0 auto',
+        height: tg.viewportStableHeight,
+        width: '100vw',
+      }}>
         {isFetching && (<FullScreenLoader />)}
         <Routes>
           <Route path='/*' element={
@@ -36,7 +49,6 @@ export const App = () => {
               <AppLayout />
             </Suspense>
           } />
-
         </Routes>
       </Stack>
     </ThemeWrapper>

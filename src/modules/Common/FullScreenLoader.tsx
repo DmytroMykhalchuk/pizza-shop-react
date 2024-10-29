@@ -6,6 +6,6 @@ type FullScreenLoaderType = {
 
 export const FullScreenLoader: React.FC<FullScreenLoaderType> = ({ }) => (
     <Stack className={styles.fullScreenLoader} alignItems={'center'} justifyContent={'center'}>
-        <CircularProgress color="secondary" />
+        <CircularProgress color="primary" />
     </Stack>
 );

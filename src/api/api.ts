@@ -1,6 +1,7 @@
 import axios from "axios";
 
-export const baseUrl = process.env.REACT_APP_API_URL + '/api/';
+
+export const baseUrl = import.meta.env.VITE_REACT_APP_API_URL + '/api/';
 export const refreshInstance = axios.create({
   baseURL: baseUrl,
   headers: {
@@ -36,14 +37,14 @@ instance.interceptors.response.use(
   async (error) => {
     if (error?.response?.status === 401) {
       if (localStorage.getItem('access_token')) {
-        return refreshInstance.post("auth/refresh", {}, {
+        return refreshInstance.post("/profile/refresh", {}, {
           headers: {
             'authorization': `Bearer ${localStorage.getItem('access_token')}`,
           }
         }).then(responseRefreshToken => {
-          if (responseRefreshToken?.data?.authorisation.token) {
-            localStorage.setItem('access_token', responseRefreshToken.data.authorisation.token)
-            error.config.headers.authorization = `Bearer ${responseRefreshToken.data.authorisation.token}`;
+          if (responseRefreshToken?.data?.authorization.token) {
+            localStorage.setItem('access_token', responseRefreshToken.data.authorization.token)
+            error.config.headers.authorization = `Bearer ${responseRefreshToken.data.authorization.token}`;
 
             return instance.request(error.config);
           }

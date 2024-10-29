@@ -22,10 +22,19 @@ export const AppFooter: React.FC<AppFooterType> = ({ }) => {
             <BottomNavigation
                 value={value}
                 onChange={onChangeTab}
-                sx={{ backgroundColor: 'secondary.main' }}
+                sx={{ backgroundColor: 'primary.main' }}
             >
                 {bottomBar.map((item) => (
-                    <BottomNavigationAction key={item.name} label={item.name} icon={<item.Icon />} />
+                    <BottomNavigationAction
+                        key={item.name}
+                        label={item.name}
+                        sx={{
+                            '& .MuiBottomNavigationAction-label': {
+                                color: 'fpage.dark'
+                            },
+                        }}
+                        icon={<item.Icon sx={{ color: 'fpage.dark' }} />}
+                    />
                 ))}
             </BottomNavigation>
         </Paper>

@@ -1,9 +1,11 @@
 import { thunk } from 'redux-thunk';
 import { applyMiddleware, combineReducers, compose, legacy_createStore as createStore } from "redux";
 import appReducer from "./app/appReducer";
+import categoryReducer from './category/categoryReducer';
 
 let rootReducer = combineReducers({
    app: appReducer,
+   category: categoryReducer,
 });
 
 // @ts-ignore

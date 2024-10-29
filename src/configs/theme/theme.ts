@@ -8,8 +8,11 @@ export const globalTheme = {
             // default: "#F1F1F1",
             // paper: "#252525",
          },
+         primary: {
+            main: '#FCDCAB',
+         },
          fpage: {
-            dark: '#fff',
+            dark: '#000',
             main: '#fff',
             light: '#fff',
          },
@@ -22,7 +25,7 @@ export const globalTheme = {
             // default: "#F1F1F1",
          },
          primary: {
-            main: '#000',
+            main: '#FCDCAB',
          },
          secondary: {
             main: '#FCDCAB',
