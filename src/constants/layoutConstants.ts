@@ -6,25 +6,37 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 export const darkMode = 'dark';
 export const lightMode = 'light';
 
-export const bottomBar = [
-    {
+export const bottomBar = {
+    home: {
+        id: 'home',
         name: 'Home',
         Icon: HomeOutlinedIcon,
         path: '/',
+        hasBadge: false,
     },
-    {
-        name: 'Custom',
+    custom: {
+        id: 'categories',
+        name: 'Categories',
         Icon: MicrowaveOutlinedIcon,
-        path: '/custom/',
+        path: '/categories/',
+        hasBadge: false,
     },
-    {
+    cart: {
+        id: 'cart',
         name: 'Cart',
         Icon: ShoppingCartOutlinedIcon,
         path: '/cart/',
+        hasBadge: false,
     },
-    {
+    profile: {
+        id: 'profile',
         name: 'Profile',
         Icon: PersonOutlineOutlinedIcon,
         path: '/profile/',
+        hasBadge: false,
     },
+};
+
+export const profileMenu = [
+    { label: 'Orders', path: '/profile/orders', },
 ];

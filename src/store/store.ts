@@ -1,11 +1,15 @@
-import { thunk } from 'redux-thunk';
-import { applyMiddleware, combineReducers, compose, legacy_createStore as createStore } from "redux";
-import appReducer from "./app/appReducer";
+import appReducer from './app/appReducer';
+import cartReducer from './cartReducer/cartReducer';
 import categoryReducer from './category/categoryReducer';
+import dishReducer from './dish/dishReducer';
+import { applyMiddleware, combineReducers, compose, legacy_createStore as createStore } from 'redux';
+import { thunk } from 'redux-thunk';
 
 let rootReducer = combineReducers({
    app: appReducer,
    category: categoryReducer,
+   dish: dishReducer,
+   cart: cartReducer,
 });
 
 // @ts-ignore

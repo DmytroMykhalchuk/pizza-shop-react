@@ -10,7 +10,7 @@ type AppRootRoutesType = {
 
 export const AppRootRoutes: React.FC<AppRootRoutesType> = ({ }) => (
     <Routes>
-        <Route path='/custom/*' element={<CustomRoutes />} />
+        {/* <Route path='/custom/*' element={<CustomRoutes />} /> */}
         <Route path='/cart/*' element={<CartRoutes />} />
         <Route path='/profile/*' element={<ProfileRoutes />} />
         <Route path='/categories/*' element={<CategoryRoutes />} />

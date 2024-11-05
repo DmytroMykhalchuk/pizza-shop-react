@@ -22,13 +22,18 @@ export const globalTheme = {
       palette: {
          mode: "light",
          background: {
-            // default: "#F1F1F1",
+            default: "#FAFBFD",
          },
          primary: {
-            main: '#FCDCAB',
+            main: '#F6AE2D',
+            contrastText: '#fff',
          },
          secondary: {
             main: '#FCDCAB',
+         },
+         info: {
+            main: '#F8F9FB',
+            dark: '#E5E5E7',
          },
          fpage: {
             dark: '#000',
@@ -36,6 +41,15 @@ export const globalTheme = {
             light: '#000',
          },
       },
+      components: {
+         MuiButton: {
+            styleOverrides: {
+               root: {
+                  textTransform: 'none',
+               }
+            }
+         }
+      }
    }),
 };
 

@@ -1,7 +1,7 @@
 interface ShareToStoryParams {
     caption?: string;
     [key: string]: any;
-}
+};
 
 type PopupButtonType = {
     id?: string;
@@ -25,7 +25,7 @@ interface TelegramWebAppThemeParams {
     section_separator_color: string; // Колір роздільника секції
     subtitle_text_color: string; // Колір підзаголовка
     text_color: string; // Колір тексту
-}
+};
 
 interface TelegramWebAppInitDataUnsafe {
     auth_date: string;
@@ -48,7 +48,7 @@ interface TelegramWebAppUser {
     username?: string;
     language_code?: string;
     photo_url?: string;
-}
+};
 
 interface TelegramWebAppChat {
     id: number;
@@ -56,7 +56,7 @@ interface TelegramWebAppChat {
     type: string;
     username?: string;
     photo_url?: string;
-}
+};
 
 interface TelegramWebApp {
     initData: string;
@@ -200,12 +200,12 @@ interface TelegramWebApp {
     version: string;
     viewportHeight: number;
     viewportStableHeight: number;
-}
+};
 
 interface Telegram {
     WebApp: TelegramWebApp;
-}
+};
 
 interface Window {
     Telegram: Telegram;
-}
+};

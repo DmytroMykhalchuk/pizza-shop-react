@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { getThemeMode } from '../../../src/store/app/appSelector';
+import { getThemeMode } from '../../store/app/appSelector';
 import { globalTheme } from '../../configs/theme/theme';
 import { ThemeProvider } from '@mui/system';
 import { useSelector } from 'react-redux';

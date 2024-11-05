@@ -7,13 +7,14 @@ import { ThunkAction } from 'redux-thunk';
 
 const TOGGLE_FATCHING = 'app/TOGGLE_FATCHING';
 const TOGGLE_THEME_MODE = 'app/TOGGLE_THEME_MODE';
-
+const SET_APP_LOCALE = 'app/SET_APP_LOCALE';
 const REDIRECT_TO = 'app/REDIRECT_TO';
 
 const initialState = {
    isFetching: false,
    redirect: '',
    themeMode: (localStorage.getItem('themeMode') || 'light') as ThemeModeType,
+   languageCode: localStorage.getItem('i18nextLng'),
 };
 
 type StateType = typeof initialState;
@@ -40,6 +41,13 @@ const appReducer = (state = initialState, action: ActionsTypes): StateType => {
          };
       }
 
+      case SET_APP_LOCALE: {
+         return {
+            ...state,
+            languageCode: action.locale,
+         }
+      }
+
       default: return state;
    };
 };
@@ -48,9 +56,10 @@ export type ActionsTypes = InferActionsTypes<typeof actions>;
 export type DispatchType = Dispatch<ActionsTypes>;
 
 const actions = {
-   toggleFetching: () => { return { type: TOGGLE_FATCHING } as const },
-   setRedirect: (path: string) => { return { type: REDIRECT_TO, path } as const },
-   toggleThemeMode: (currentTheme: ThemeModeType) => { return { type: TOGGLE_THEME_MODE, currentTheme } as const },
+   toggleFetching: () => { return { type: TOGGLE_FATCHING } as const; },
+   setRedirect: (path: string) => { return { type: REDIRECT_TO, path } as const; },
+   toggleThemeMode: (currentTheme: ThemeModeType) => { return { type: TOGGLE_THEME_MODE, currentTheme } as const; },
+   setAppLocale: (locale: string) => { return { type: SET_APP_LOCALE, locale, } as const; },
 };
 
 type ThunksTypes = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>;
@@ -80,6 +89,12 @@ export const toggleThemeMode = (currentThemeMode: ThemeModeType): ThunksTypes =>
       localStorage.setItem(themeModeKey, targetTheme);
 
       dispatch(actions.toggleThemeMode(currentThemeMode));
+   };
+};
+
+export const changeAppLocale = (locale: string): ThunksTypes => {
+   return async (dispatch) => {
+      dispatch(actions.setAppLocale(locale));
    };
 };
 

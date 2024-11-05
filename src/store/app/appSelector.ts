@@ -11,3 +11,7 @@ export const getRedirectPath = (state: AppStateType) => {
 export const getThemeMode = (state: AppStateType) => {
    return state.app.themeMode;
 };
+
+export const getLanguageCode = (state: AppStateType) => {
+   return state.app.languageCode;
+};

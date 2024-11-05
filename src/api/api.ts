@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 
 
 export const baseUrl = import.meta.env.VITE_REACT_APP_API_URL + '/api/';
@@ -74,4 +74,18 @@ instance.interceptors.response.use(
 );
 
 export const api = {
+};
+
+export const axiosResponseHandler = (response: AxiosResponse<any, any>) => {
+  return response.data;
+};
+
+export const axiosErrorHandler = (error: any) => {
+  return error?.response?.data;
+};
+
+export const headerMultipart = {
+  headers: {
+    'content-type': 'multipart/form-data'
+  },
 };

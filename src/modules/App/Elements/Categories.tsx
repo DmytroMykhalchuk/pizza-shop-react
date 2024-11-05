@@ -1,11 +1,11 @@
-import { Avatar, Box, Grid, Paper, Stack, Typography } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import { getCategories } from "../../../store/category/categorySelector";
-import { useEffect } from "react";
-import { requireCategories } from "../../../store/category/categoryReducer";
-import styles from './../styles.module.scss';
-import { NavLink, useNavigate } from "react-router-dom";
-import { BaseLink } from "../../Common/BaseLink";
+import { BaseLink } from '../../Common/BaseLink';
+import { CategoryItem } from './CategoryItem';
+import { getCategories } from '../../../store/category/categorySelector';
+import { Grid, Stack, Typography } from '@mui/material';
+import { requireCategories } from '../../../store/category/categoryReducer';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 type CategoriesType = {
 };
 
@@ -27,28 +27,16 @@ export const Categories: React.FC<CategoriesType> = ({ }) => {
         <Stack width={'100%'} px={2}>
             <Stack direction={'row'} alignItems={'flex-end'} justifyContent={'space-between'}>
                 <Typography variant="h6">Категорії</Typography>
-                <BaseLink to="/categories" label="Більше"/>
+                <BaseLink to="/categories" label="Більше" />
             </Stack>
             <Grid container columns={10}>
                 {
                     categories?.map(category => (
-                        <Grid className={styles.categoryGridItem}
+                        <CategoryItem
                             key={category.id}
-                            item
-                            xs={2}
-                            component={'button'}
-                            onClick={() => onOpenCategory(category.id)}
-                        >
-                            <Paper className={styles.iconWrapper} >
-                                <Box
-                                    className={styles.iconWrapper__icon}
-                                    component={'img'}
-                                    alt={category.name}
-                                    src={category.icon}
-                                />
-                            </Paper>
-                            <Typography variant="body1" textAlign={'center'}>{category.name}</Typography>
-                        </Grid>
+                            category={category}
+                            onOpenCategory={()=>onOpenCategory(category.id)}
+                        />
                     ))
                 }
             </Grid>
