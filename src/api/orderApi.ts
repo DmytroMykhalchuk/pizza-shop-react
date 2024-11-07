@@ -1,14 +1,14 @@
 import { axiosErrorHandler, axiosResponseHandler, instance } from "./api";
 
-export const categoryApi = {
-    async getCategories() {
-        return instance.post('/categories')
+export const orderApi = {
+    async getOrders() {
+        return instance.post('/orders')
             .then(axiosResponseHandler)
             .catch(axiosErrorHandler);
     },
 
-    async getCategoryDishes(slug: string) {
-        return instance.post(`/categories/${slug}`)
+    async getOrder(orderId: number) {
+        return instance.post(`/orders/${orderId}`)
             .then(axiosResponseHandler)
             .catch(axiosErrorHandler);
     },

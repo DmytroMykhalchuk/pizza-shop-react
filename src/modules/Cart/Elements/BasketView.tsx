@@ -1,10 +1,10 @@
 import { Box, Stack, Typography, IconButton, Paper, Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { getCartDishes, getCartDishIds } from "../../../store/cartReducer/cartSelector";
+import { getCartDishes, getCartDishIds } from "../../../store/cart/cartSelector";
 import { useEffect, useMemo } from "react";
-import { removeDishFromCart, requireCartDishes } from "../../../store/cartReducer/cartReducer";
+import { removeDishFromCart, requireCartDishes } from "../../../store/cart/cartReducer";
 import { FullScreenLoader } from "../../Common/FullScreenLoader";
-import { CartType } from "../../../store/cartReducer/cartTypes";
+import { CartType } from "../../../store/cart/cartTypes";
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { DishSizeType, DishType } from "../../../store/dish/dishTypes";
 

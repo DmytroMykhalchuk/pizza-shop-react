@@ -5,7 +5,7 @@ import { Paper } from '@mui/material';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { getHasCartItems } from '../../store/cartReducer/cartSelector';
+import { getHasCartItems } from '../../store/cart/cartSelector';
 import { IconWithBadge } from '../../modules/UI/IconWithBadge';
 import { bottomBarHeight } from '../../constants/stylesConstant';
 

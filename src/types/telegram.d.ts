@@ -175,7 +175,7 @@ interface TelegramWebApp {
     disableVerticalSwipes: () => void;
     enableClosingConfirmation: () => void;
     enableVerticalSwipes: () => void;
-    invokeCustomMethod: (method: string, params: any, callback: Function);
+    invokeCustomMethod: (method: string, params: any, callback: Function) => void;
     isClosingConfirmationEnabled: boolean;
     isExpanded: boolean;
     isVersionAtLeast: () => boolean;

@@ -1,7 +1,10 @@
-import { Stack, SxProps} from '@mui/material';
+import { Stack, SxProps } from '@mui/material';
 import { HomeHeader } from './Elements/HomeHeader';
-import { HomeSearch } from './Elements/HomeSearch';
-import { SearchDishes } from './Elements/SearchDishes';
+import { HomeSearch } from './Search/HomeSearch';
+import { SearchDishes } from './Search/SearchDishes';
+import { Categories } from './Elements/Categories';
+import { HomeBanner } from './Elements/HomeBanner';
+import { DishSections } from './Elements/DishSections';
 
 let tg = window.Telegram.WebApp;
 
@@ -9,14 +12,15 @@ type HomePageType = {
 };
 
 export const HomePage: React.FC<HomePageType> = ({ }) => {
-
     return (
         <Stack sx={styles.stack}>
             <HomeHeader />
-            <Stack bgcolor={'whitesmoke'} flexGrow={1}>
+            <Stack flexGrow={1} px={1}>
                 <HomeSearch />
-                {/* <Categories /> */}
-                <SearchDishes />
+                <Categories />
+                <HomeBanner />
+                {/* <SearchDishes /> */}
+                <DishSections/>
             </Stack>
         </Stack>
     );

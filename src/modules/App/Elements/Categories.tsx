@@ -35,7 +35,7 @@ export const Categories: React.FC<CategoriesType> = ({ }) => {
                         <CategoryItem
                             key={category.id}
                             category={category}
-                            onOpenCategory={()=>onOpenCategory(category.id)}
+                            onOpenCategory={() => onOpenCategory(category.id)}
                         />
                     ))
                 }

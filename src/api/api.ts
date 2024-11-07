@@ -89,3 +89,5 @@ export const headerMultipart = {
     'content-type': 'multipart/form-data'
   },
 };
+
+export const successStatus = 'success';

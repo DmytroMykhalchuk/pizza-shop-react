@@ -1,9 +1,8 @@
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
-import { getFavouriteDishes } from '../../../store/dish/dishSelector';
-import { IconButton, Stack, Typography } from '@mui/material';
+import { getFavouriteDishIds } from '../../../store/dish/dishSelector';
+import { Stack, Typography } from '@mui/material';
 import { toggleFavouriteDish } from '../../../store/dish/dishReducer';
 import { useDispatch, useSelector } from 'react-redux';
+import { FavouriteButton } from '../../Common/FavouriteButton';
 
 type HeaderProductPageType = {
     dishId: number;
@@ -12,14 +11,10 @@ type HeaderProductPageType = {
 export const HeaderProductPage: React.FC<HeaderProductPageType> = ({ dishId }) => {
     const dispatch: any = useDispatch();
 
-    const favoriteDishes = useSelector(getFavouriteDishes);
-
-    const targetHeart = favoriteDishes.includes(dishId)
-        ? <FavoriteOutlinedIcon color="primary" />
-        : <FavoriteBorderOutlinedIcon />;
+    const favoriteDishIds = useSelector(getFavouriteDishIds);
 
     const toggleFavourite = () => {
-        dispatch(toggleFavouriteDish(dishId,favoriteDishes))
+        dispatch(toggleFavouriteDish(dishId, favoriteDishIds))
     };
 
     return (
@@ -27,9 +22,10 @@ export const HeaderProductPage: React.FC<HeaderProductPageType> = ({ dishId }) =
             <Stack flex={1}></Stack>
             <Typography flex={8} variant="h6" textAlign={'center'}>Details</Typography>
             <Stack flex={1}>
-                <IconButton aria-label="to favorite" onClick={toggleFavourite} >
-                    {targetHeart}
-                </IconButton>
+                <FavouriteButton
+                    isFavourite={favoriteDishIds.includes(dishId)}
+                    toggleFavourite={toggleFavourite}
+                />
             </Stack>
         </Stack>
     );

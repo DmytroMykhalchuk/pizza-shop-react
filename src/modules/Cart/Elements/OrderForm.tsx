@@ -5,7 +5,7 @@ import { useState } from "react";
 import { CommonRadio } from "../../Form/Elements/CommonRadio";
 import { methodPayments } from "../../../constants/formConstants";
 import { useSelector } from "react-redux";
-import { getCartDishIds } from "../../../store/cartReducer/cartSelector";
+import { getCartDishIds } from "../../../store/cart/cartSelector";
 
 type OrderFormType = {
     onPrevStep: () => void;

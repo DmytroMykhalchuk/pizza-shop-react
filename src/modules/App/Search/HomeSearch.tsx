@@ -70,7 +70,7 @@ export const HomeSearch: React.FC<HomeSearchType> = ({ }) => {
                 <InputBase
                     sx={{ ml: 1, flex: 1 }}
                     placeholder="Search"
-                    inputProps={{ 'aria-label': 'search google maps' }}
+                    inputProps={{ 'aria-label': 'search dishes' }}
                     value={search}
                     onChange={onChangeSearch}
                 />

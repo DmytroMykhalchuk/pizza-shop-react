@@ -4,7 +4,7 @@ import { cartKey } from "../../../constants/storageConstants";
 import { CartActions } from "./CartActions";
 import { AddedToCartMessage } from "./AddedToCartMessage";
 import { useDispatch } from "react-redux";
-import { addToCartDish } from "../../../store/cartReducer/cartReducer";
+import { addToCartDish } from "../../../store/cart/cartReducer";
 
 type CartFooterType = {
     dishPropeties: {

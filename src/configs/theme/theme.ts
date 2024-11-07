@@ -25,8 +25,9 @@ export const globalTheme = {
             default: "#FAFBFD",
          },
          primary: {
-            main: '#F6AE2D',
-            contrastText: '#fff',
+            main: '#D32F2F',      // Насичений червоний для основного кольору
+            light: '#FF6659',      // Світліший відтінок червоного
+            contrastText: '#fff',  // Білий текст для контрасту
          },
          secondary: {
             main: '#FCDCAB',

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { getLanguageCode, getRedirectPath } from "../../store/app/appSelector";
 import { changeAppLocale, removeRedirect } from "../../store/app/appReducer";
 import { FullScreenLoader } from "./FullScreenLoader";
-import { initCart } from "../../store/cartReducer/cartReducer";
+import { initCart } from "../../store/cart/cartReducer";
 
 type InitializingType = {
     children: ReactNode;

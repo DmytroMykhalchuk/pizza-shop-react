@@ -10,12 +10,12 @@ type CategoryRoutesType = {
 
 export const CategoryRoutes: React.FC<CategoryRoutesType> = ({ }) => (
     <Routes>
-        <Route path='/:categoryId' element={
+        <Route path='/:categorySlug' element={
             <Suspense fallback={<FullScreenLoader />}>
                 <CategoryIndexPage />
             </Suspense>
         } />
-        <Route path='/:categoryId/:dishId' element={
+        <Route path='/:categorySlug/:dishId' element={
             <Suspense fallback={<FullScreenLoader />}>
                 <ProductIndexPage />
             </Suspense>

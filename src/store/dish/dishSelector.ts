@@ -8,6 +8,10 @@ export const getDish = (state: AppStateType) => {
    return state.dish.dish;
 };
 
-export const getFavouriteDishes = (state: AppStateType) => {
-   return state.dish.favouriteDishes;
+export const getFavouriteDishIds = (state: AppStateType) => {
+   return state.dish.favouriteDishIds;
+};
+
+export const getHomePageDishes = (state: AppStateType) => {
+   return state.dish.homePageDishes;
 };

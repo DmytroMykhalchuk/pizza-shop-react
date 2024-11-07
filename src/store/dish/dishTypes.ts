@@ -9,6 +9,10 @@ export type DishType = {
     detail: string;
     sizes: DishSizeType[];
     category: CategoryType;
+    rating: number;
+    discount: number;
+    isPopular: number;
+    isNew: number;
 };
 
 export type FullDishType = {
@@ -33,4 +37,10 @@ export type DishSizeType = {
     diameterCm: number;
     weightMultiplier: number;
     sizeCode: string;
+};
+
+export type HomePageDishesType = {
+    popular: null | DishType[],
+    new: null | DishType[],
+    favorites: null | DishType[],
 };
