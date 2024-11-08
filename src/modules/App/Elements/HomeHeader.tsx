@@ -1,7 +1,9 @@
-import { Avatar, Box, Stack, Typography, IconButton } from "@mui/material";
-import { HomeMenu } from "./HomeMenu";
+import { Box, Stack, Typography, IconButton, Badge } from "@mui/material";
 import styles from './../styles.module.scss';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import { useSelector } from "react-redux";
+import { getNotificationsCount } from "../../../store/profile/profileSelector";
+import { useNavigate } from "react-router-dom";
 
 const tg = window.Telegram.WebApp as any;
 
@@ -9,8 +11,13 @@ type HomeHeaderType = {
 };
 
 export const HomeHeader: React.FC<HomeHeaderType> = ({ }) => {
+    const navigate = useNavigate();
 
-    const onOpenNatifcation = () => { };
+    const notificationsCount = useSelector(getNotificationsCount);
+
+    const onOpenNatifcation = () => {
+        navigate('noifications');
+    };
 
     const userName = tg?.initDataUnsafe?.user?.first_name || tg?.initDataUnsafe?.user?.username;
 
@@ -20,10 +27,11 @@ export const HomeHeader: React.FC<HomeHeaderType> = ({ }) => {
                 backgroundColor: 'secondary.main'
             }}
         >
-            <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
-                <HomeMenu />
+            <Stack direction={'row'} justifyContent={'flex-end'} alignItems={'center'}>
                 <IconButton aria-label="notification" onClick={onOpenNatifcation}>
-                    <NotificationsIcon />
+                    <Badge badgeContent={notificationsCount} color="primary">
+                        <NotificationsIcon />
+                    </Badge>
                 </IconButton>
             </Stack>
 

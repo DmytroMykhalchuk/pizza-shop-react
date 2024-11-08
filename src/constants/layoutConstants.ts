@@ -39,4 +39,19 @@ export const bottomBar = {
 
 export const profileMenu = [
     { label: 'Orders', path: '/profile/orders', },
+    { label: 'Language', path: '/profile/language', },
+];
+
+export const availableLanguages = [
+    {
+        label: 'Українська',
+        code: 'uk',
+        icon: 'https://flagcdn.com/16x12/ua.png',
+    },
+    {
+        label: 'Englsih',
+        code: 'en',
+        icon: 'https://flagcdn.com/16x12/gb.png',
+    }
+
 ];

@@ -40,7 +40,7 @@ export const AllCategoriesPage: React.FC<AllCategoriesPageType> = ({ }) => {
                         </Stack>
                         <Box
                             component={'img'}
-                            src={category.preview}
+                            src={category.icon}
                             alt={category.name}
                             height={80}
                         />

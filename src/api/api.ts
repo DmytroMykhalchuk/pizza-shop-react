@@ -80,6 +80,13 @@ export const axiosResponseHandler = (response: AxiosResponse<any, any>) => {
   return response.data;
 };
 
+export const axiosResponseHandlerWithAuth = (response: AxiosResponse<any, any>) => {
+  if (response.data?.authorization && response.data?.authorization?.token) {
+    localStorage.setItem('access_toke', response.data?.authorization?.token);
+  }
+  return response.data;
+};
+
 export const axiosErrorHandler = (error: any) => {
   return error?.response?.data;
 };

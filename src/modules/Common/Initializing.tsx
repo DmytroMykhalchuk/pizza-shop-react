@@ -5,6 +5,8 @@ import { getLanguageCode, getRedirectPath } from "../../store/app/appSelector";
 import { changeAppLocale, removeRedirect } from "../../store/app/appReducer";
 import { FullScreenLoader } from "./FullScreenLoader";
 import { initCart } from "../../store/cart/cartReducer";
+import { getIsAuthorized } from "../../store/profile/profileSelector";
+import { login } from "../../store/profile/profileReducer";
 
 type InitializingType = {
     children: ReactNode;
@@ -16,6 +18,7 @@ export const Initializing: React.FC<InitializingType> = ({ children }) => {
     const dispatch: any = useDispatch();
 
     const languageCode = useSelector(getLanguageCode);
+    const isAuthorized = useSelector(getIsAuthorized);
 
     const [isInited, setIsInited] = useState(false);
 
@@ -23,9 +26,16 @@ export const Initializing: React.FC<InitializingType> = ({ children }) => {
         tg.ready();
         tg.expand();
 
+        console.log(isAuthorized)
 
+        if (!isAuthorized) {
+            console.log(tg.initData)
+            dispatch(login(tg.initData));
+        }
         if (!languageCode) {
             dispatch(changeAppLocale(tg.initDataUnsafe.user.language_code))
+        } else {
+
         }
         dispatch(initCart());
         setIsInited(true);
@@ -33,7 +43,8 @@ export const Initializing: React.FC<InitializingType> = ({ children }) => {
 
     }, []);
 
-    if (isInited) {
+    if (isInited && isAuthorized) {
+    // if (isInited) {
         return children;
     }
 

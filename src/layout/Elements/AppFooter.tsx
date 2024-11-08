@@ -34,13 +34,18 @@ export const AppFooter: React.FC<AppFooterType> = ({ }) => {
     };
 
     const menu = useMemo(() => {
-        bottomBar.cart.hasBadge = hasCartItems;
+        bottomBar.cart.hasBadge = Boolean(hasCartItems);
 
         return Object.values(bottomBar);
     }, [hasCartItems]);
 
     return (
-        <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, height: bottomBarHeight }} elevation={3}>
+        <Paper sx={{
+            position: 'fixed',
+            bottom: 0, left: 0, right: 0,
+            height: bottomBarHeight,
+            zIndex: 1,
+        }} elevation={3}>
             <BottomNavigation
                 value={position}
                 onChange={onChangeTab}

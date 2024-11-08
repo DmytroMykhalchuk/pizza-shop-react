@@ -5,6 +5,8 @@ import dishReducer from './dish/dishReducer';
 import { applyMiddleware, combineReducers, compose, legacy_createStore as createStore } from 'redux';
 import { thunk } from 'redux-thunk';
 import orderReducer from './order/orderReducer';
+import profileReducer from './profile/profileReducer';
+import notificationReducer from './notification/notificationReducer';
 
 let rootReducer = combineReducers({
    app: appReducer,
@@ -12,6 +14,8 @@ let rootReducer = combineReducers({
    dish: dishReducer,
    cart: cartReducer,
    order: orderReducer,
+   profile: profileReducer,
+   notification: notificationReducer,
 });
 
 // @ts-ignore

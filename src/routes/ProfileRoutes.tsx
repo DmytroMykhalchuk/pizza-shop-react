@@ -2,8 +2,9 @@ import { FullScreenLoader } from '../modules/Common/FullScreenLoader';
 import { ProfilePage } from '../modules/Profile/ProfilePage';
 import { Route, Routes } from 'react-router-dom';
 import { Suspense } from 'react';
-import { OrdersPage } from '../modules/Profile/OrdersPage';
-import { OrderIndexPage } from '../modules/Profile/OrderIndexPage';
+import { OrdersPage } from '../modules/Order/OrdersPage';
+import { OrderIndexPage } from '../modules/Order/OrderIndexPage';
+import { LanguagePage } from '../modules/Profile/LanguagePage';
 
 type ProfileRoutesType = {
 };
@@ -20,6 +21,12 @@ export const ProfileRoutes: React.FC<ProfileRoutesType> = ({ }) => (
                 <OrderIndexPage />
             </Suspense>
         } />
+        <Route path='/language' element={
+            <Suspense fallback={<FullScreenLoader />}>
+                <LanguagePage />
+            </Suspense>
+        } />
+
         <Route path='/*' element={
             <Suspense fallback={<FullScreenLoader />}>
                 <ProfilePage />
